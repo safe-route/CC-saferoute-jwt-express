@@ -15,5 +15,5 @@ Change the .env values to your development environment variables, the value incl
 ## Endpoints
 
 - `localhost:3000/signup` form encoded, required payload with **POST** method is `username` and `password`
-- `localhost:3000/login` form encoded, required payload is the same with signup `username` and `password`
-- `localhost:3000/user/profile` serving as a protected route simulation, can only be accessed if you have the right token.
+- `localhost:3000/login` form encoded, required payload is the same with signup with **POST** method, `username` and `password`
+- `localhost:3000/user/profile` serving as a protected route simulation, can only be accessed if you have the right token **GET** method with Bearer token.

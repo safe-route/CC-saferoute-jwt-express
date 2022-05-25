@@ -1,8 +1,13 @@
+// Route for user
+
 const express = require('express')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
 const router = express.Router()
+require('dotenv').config()
+
+const SECRET = process.env.SECRET
 
 router.post(
   '/signup',
@@ -28,7 +33,7 @@ router.post('/login', async (req, res, next) => {
         if (error) return next(error)
 
         const body = { _id: user._id, email: user.email }
-        const token = jwt.sign({ user: body }, 'TOP_SECRET')
+        const token = jwt.sign({ user: body }, SECRET)
 
         return res.json({ token })
       })
