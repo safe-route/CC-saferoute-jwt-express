@@ -8,9 +8,9 @@ This is the code for JWT server, implementing jwt as a form of authentication fo
 
 Install all required dependency with `npm install`, run the server with either `nodemon app.js` or `node app.js`, with nodemon is better meant for development purpose.
 
-**!!IMPORTANT**
+**!!IMPORTANT!!**
 
-Change the .env values to your development environment variables, the value included are by no means secret, but it is not recommended. **SET `.env` in `.gitignore` if moving to prod version
+Change the .env values to your development environment variables, the value included are by no means secret, but it is not recommended. **SET `.env` in `.gitignore` if moving to prod version**
 
 ## Endpoints
 

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  jwt-authn-server:
+    container_name: jwt-auth
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: express-jwt-auth
+    env_file: .env
+    ports:
+      - '3000:3000'
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    environments:
+      - WAIT_HOSTS: mongodb:27017
+    networks:
+      - auth-network
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.4.14-focal
+    restart: unless-stopped
+    volumes:
+      - ~/mongo:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=usersdb
+    networks:
+      - auth-network
+
+  networks:
+    auth-networks:
+      driver: bridge
