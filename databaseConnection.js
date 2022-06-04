@@ -8,10 +8,10 @@ require('dotenv').config()
 mongoose.Promise = global.Promise
 
 // Set these variables from env
-const { DB_HOST, DB_NAME, DB_PORT } = process.env
+const { MONGODB_ATLAS_URL } = process.env
 
 const connectToDatabase = async () => {
-  await mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`)
+  await mongoose.connect(`${MONGODB_ATLAS_URL}`)
 
   // Print this if connected
   mongoose.connection.on('connected', function () {
